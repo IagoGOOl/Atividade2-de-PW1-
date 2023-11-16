@@ -21,8 +21,10 @@ export const serviceCreateTechnologies = (
 	return data;
 };
 
-export const serviceGetTechnologies = (id: string, idUser: string) => {
+export const serviceGetTechnology = (id: string, idUser: string) => {
 	const user = serviceGetUser(idUser);
+	console.log(user);
+	
 	return user?.technologies.find((obj: Technologie) => obj.id === id);
 };
 
@@ -49,7 +51,7 @@ export const serviceUpdateTechnologies = (
 	const newUser: User = { ...user, technologies };
 	serviceUpdateUser(idUser, newUser);
 
-	const tec = serviceGetTechnologies(id, idUser);
+	const tec = serviceGetTechnology(id, idUser);
 	return tec;
 };
 

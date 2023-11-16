@@ -6,7 +6,7 @@ import {
 	serviceUpdateTechnologies,
 	serviceDeleteTechnologies,
 	serviceGetAllTechnologies,
-	serviceGetTechnologies,
+	serviceGetTechnology,
 } from '../services/technologies';
 
 import { serviceGetUser } from '../services/users';
@@ -23,7 +23,7 @@ const verifyFields = (
 };
 
 const technologieExist = (idTec: string, idUser: string, res: Response) => {
-	const tec = serviceGetTechnologies(idTec, idUser);
+	const tec = serviceGetTechnology(idTec, idUser);
 	const isTecExist = Boolean(tec);
 	if (!isTecExist) {
 		return res.status(404).json({ message: 'Technologie not found' });
